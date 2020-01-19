@@ -1,0 +1,7 @@
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t mj-analytics/docker-react -f Dockerfile.dev .
+script:
+    - docker run -e CI=true mj-analytics/docker-react npm run test
